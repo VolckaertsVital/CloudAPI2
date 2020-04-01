@@ -21,15 +21,31 @@ namespace AirsoftBase.Controllers
         }
 
         [HttpGet]
-        public ActionResult<AirsoftGun[]> GetAll()
+        public ActionResult<AirsoftGun[]> Index()
         {
             if (this.ctxt.Airsofts == null)
             {
                 return NotFound("no data found");
+                
             }
 
             return this.ctxt.Airsofts.ToArray();
         }
+         
+
+        [HttpGet]
+        [Route("{id}")]
+        public ActionResult<AirsoftGun> Details(int id) {
+
+            var result = ctxt.Airsofts.FirstOrDefault(c => c.Id == id);
+            if (result != null)
+            {
+                return (result);
+
+            }
+            else return NotFound($"Id {id} not found");
+        }
+       
 
         [HttpPost]
         public ActionResult<AirsoftGun> Create([FromBody] AirsoftGun NewAirsoft)
@@ -41,18 +57,6 @@ namespace AirsoftBase.Controllers
         }
 
 
-        [HttpGet]
-        [Route("{id}")]
-        public ActionResult<AirsoftGun> GetGun(int id) {
-
-            var result = ctxt.Airsofts.FirstOrDefault(c => c.Id == id);
-            if (result != null)
-            {
-                return result;
-
-            }
-            else return NotFound($"Id {id} not found");
-        }
 
         [HttpPut]
         public IActionResult Update([FromBody] AirsoftGun _airsoft)

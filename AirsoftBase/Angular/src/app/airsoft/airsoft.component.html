@@ -1,0 +1,47 @@
+
+<div>
+
+  @using (Html.BeginForm("index", "home", FormMethod.Get))
+  {
+  <b> Search by ID:</b>
+  @Html.RadioButton("searchBy", "Name", true) <text>Name</text>
+  @Html.RadioButton("searchBy", "Brand") <text>Brand</text>
+  <br />
+  @Html.TextBox("search") <input type="submit" value="Search" />
+
+  }
+
+  <table id="products">
+    <tr class="header">
+
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Meer details</th>
+      <th></th>
+    </tr>
+    
+    <tr>
+
+      <td>{{AirsoftGun.Name}}</td>
+      <td>{{AirsoftGun.Brand}}</td>
+      <td>{{AirsoftGun.Type}}</td>
+      <td>{{AirsoftGun.Description}}</td>
+      <td>
+        <a asp-controller="home" asp-action="details" asp-route-id="@AirsoftGun.Id">
+          <button class="button"> Meer info</button>
+        </a>
+      </td>
+      <td>
+        <a asp-controller="home" asp-action="Delete" asp-route-id="@AirsoftGun.Id">
+          <button class="button"> Delete</button>
+        </a>
+      </td>
+
+
+    </tr>
+
+
+  </table>
+</div>

@@ -1,3 +1,4 @@
+using AirsoftBase.Model;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -46,6 +47,8 @@ namespace AirsoftBase
         [Required(ErrorMessage = "Description is Required!")]
         [StringLength(1000)]
         public string Description { get; set; }
+
+        //public Clients client { get; set; }
 
 
     }

@@ -14,5 +14,6 @@ namespace AirsoftBase.Model
         }
 
         public DbSet<AirsoftGun> Airsofts { get; set; }
+        public DbSet<Clients> Clients { get; set; }
     }
 }

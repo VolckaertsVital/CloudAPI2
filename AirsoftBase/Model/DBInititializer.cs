@@ -12,6 +12,7 @@ namespace AirsoftBase.Model
             ctxt.Database.EnsureCreated();
             if (!ctxt.Airsofts.Any())
             {
+
                 var air1 = new AirsoftGun()
                 {
                     Brand = "ARES",
@@ -48,6 +49,20 @@ namespace AirsoftBase.Model
 
                 ctxt.Airsofts.Add(air1);
                 ctxt.Airsofts.Add(air2);
+                ctxt.SaveChanges();
+            };
+
+            if (!ctxt.Clients.Any())
+            {
+
+                var client1 = new Clients()
+                {
+                    FirstName = "patrick",
+                    LastName = "Pauwels",
+                    BirthDate = new DateTime(1994, 03, 06), //weet niet hoe ik hier de geboorte datum krijg.
+                    PostalCode = 2980
+                };
+                ctxt.Clients.Add(client1);
                 ctxt.SaveChanges();
             };
         }

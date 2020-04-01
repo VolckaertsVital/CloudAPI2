@@ -28,10 +28,11 @@ namespace AirsoftBase
         public void ConfigureServices(IServiceCollection services)
         {
             /*services.AddDbContext<Context>(opt =>
-                opt.UseInMemoryDatabase("Airsofts"));*/
+                opt.UseInMemoryDatabase("Clients"));*/
             services.AddDbContext<Context>(options =>
          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +46,8 @@ namespace AirsoftBase
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 
