@@ -1,17 +1,8 @@
 
-<div>
+  <p *ngIf="!Airsoft"><em>Loading...</em></p>
 
-  @using (Html.BeginForm("index", "home", FormMethod.Get))
-  {
-  <b> Search by ID:</b>
-  @Html.RadioButton("searchBy", "Name", true) <text>Name</text>
-  @Html.RadioButton("searchBy", "Brand") <text>Brand</text>
-  <br />
-  @Html.TextBox("search") <input type="submit" value="Search" />
 
-  }
-
-  <table id="products">
+  <table id="products" *ngIf="Airsoft">
     <tr class="header">
 
       <th>Name</th>
@@ -24,17 +15,17 @@
     
     <tr>
 
-      <td>{{AirsoftGun.Name}}</td>
-      <td>{{AirsoftGun.Brand}}</td>
-      <td>{{AirsoftGun.Type}}</td>
-      <td>{{AirsoftGun.Description}}</td>
+      <td>{{Airsoft.Name}}</td>
+      <td>{{Airsoft.Brand}}</td>
+      <td>{{Airsoft.Type}}</td>
+      <td>{{Airsoft.Description}}</td>
       <td>
-        <a asp-controller="home" asp-action="details" asp-route-id="@AirsoftGun.Id">
+        <a asp-controller="airsoft" asp-action="details" asp-route-id="{{Airsoft.Id}}">
           <button class="button"> Meer info</button>
         </a>
       </td>
       <td>
-        <a asp-controller="home" asp-action="Delete" asp-route-id="@AirsoftGun.Id">
+        <a asp-controller="airsoft" asp-action="Delete" asp-route-id="{{AirsoftGun.Id}}">
           <button class="button"> Delete</button>
         </a>
       </td>
@@ -44,4 +35,3 @@
 
 
   </table>
-</div>
