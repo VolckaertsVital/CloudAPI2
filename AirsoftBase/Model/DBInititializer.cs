@@ -26,7 +26,8 @@ namespace AirsoftBase.Model
                     Lenght = 66,
                     Weight = 2.8,
                     Battery = false,
-                    Description = "This submachine is compact and full metal."
+                    Description = "This submachine is compact and full metal.",
+                    Price = 480
 
                 };
 
@@ -43,12 +44,49 @@ namespace AirsoftBase.Model
                     Lenght = 140,
                     Weight = 3.5,
                     Battery = true,
-                    Description = "This Rifle is very accurate at long distance."
+                    Description = "This Rifle is very accurate at long distance.",
+                    Price = 199
+
+                };
+                var air3 = new AirsoftGun()
+                {
+                    Brand = "AEG",
+                    Type = "LMG",
+                    Name = "M60",
+                    MagazineSize = 3000,
+                    FPS = 400,
+                    Caliber = 6,
+                    Joule = 1.2,
+                    GearBox = "version 3",
+                    Lenght = 110,
+                    Weight = 7.5,
+                    Battery = true,
+                    Description = "This LMG has a verry large magazine size.",
+                    Price =  850
+
+                };
+                var air4 = new AirsoftGun()
+                {
+                    Brand = "Lancer Tactical",
+                    Type = "Sniper",
+                    Name = "Barret .50",
+                    MagazineSize = 300,
+                    FPS = 500,
+                    Caliber = 6,
+                    Joule = 1.5,
+                    GearBox = "version 3",
+                    Lenght = 140,
+                    Weight = 3,
+                    Battery = true,
+                    Description = "This sniper is a semi-automatic and has a lot of power.",
+                    Price = 640
 
                 };
 
                 ctxt.Airsofts.Add(air1);
                 ctxt.Airsofts.Add(air2);
+                ctxt.Airsofts.Add(air3);
+                ctxt.Airsofts.Add(air4);
                 ctxt.SaveChanges();
             };
 
@@ -59,10 +97,19 @@ namespace AirsoftBase.Model
                 {
                     FirstName = "patrick",
                     LastName = "Pauwels",
-                    BirthDate = new DateTime(1994, 03, 06), //weet niet hoe ik hier de geboorte datum krijg.
+                    BirthDate = new DateTime(1994, 03, 06),
                     PostalCode = 2980
                 };
+                var client2 = new Clients()
+                {
+                    FirstName = "bert",
+                    LastName = "hendricks",
+                    BirthDate = new DateTime(2000, 07, 12),
+                    PostalCode = 2930
+                };
+
                 ctxt.Clients.Add(client1);
+                ctxt.Clients.Add(client2);
                 ctxt.SaveChanges();
             };
         }

@@ -33,6 +33,7 @@ namespace AirsoftBase
          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddCors();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,8 +54,11 @@ namespace AirsoftBase
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                     name: "default",
+                     pattern: "{controller}/{action=Index}/{id?}");
             });
+
             DBInititializer.Init(ctxt);
         }
     }

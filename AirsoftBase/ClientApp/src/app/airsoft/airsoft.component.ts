@@ -32,4 +32,5 @@ interface airsofts {
   Weight: number;
   Battery: boolean;
   Description: string;
+  Price: number;
 }

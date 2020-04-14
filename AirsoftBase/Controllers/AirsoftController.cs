@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace AirsoftBase.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AirsoftController : ControllerBase
     {
 
@@ -21,7 +21,8 @@ namespace AirsoftBase.Controllers
         }
 
         [HttpGet]
-        public ActionResult<AirsoftGun[]> Index()
+        
+        public ActionResult<AirsoftGun[]> Get()
         {
             if (this.ctxt.Airsofts == null)
             {

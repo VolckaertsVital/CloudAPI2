@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AirsoftBase.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ClientsController : ControllerBase
     {
         private readonly Context ctxt;
@@ -18,8 +18,7 @@ namespace AirsoftBase.Controllers
         }
 
         [HttpGet]
-        [Route("Index")]
-        public ActionResult<Clients[]> Index()
+        public ActionResult<Clients[]> Get()
         {
             if (this.ctxt.Clients == null)
             {
@@ -27,6 +26,20 @@ namespace AirsoftBase.Controllers
             }
 
             return this.ctxt.Clients.ToArray();
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public ActionResult<Clients> Details(int id)
+        {
+
+            var result = ctxt.Clients.FirstOrDefault(c => c.Id == id);
+            if (result != null)
+            {
+                return (result);
+
+            }
+            else return NotFound($"Id {id} not found");
         }
     }
 }

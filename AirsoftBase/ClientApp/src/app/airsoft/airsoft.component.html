@@ -9,6 +9,7 @@
       <th>Brand</th>
       <th>Type</th>
       <th>Description</th>
+      <th>Price</th>
       <th>Meer details</th>
       <th></th>
     </tr>
@@ -19,6 +20,7 @@
       <td>{{Airsoft.Brand}}</td>
       <td>{{Airsoft.Type}}</td>
       <td>{{Airsoft.Description}}</td>
+      <td>{{Airsoft.Price}}</td>
       <td>
         <a asp-controller="airsoft" asp-action="details" asp-route-id="{{Airsoft.Id}}">
           <button class="button"> Meer info</button>

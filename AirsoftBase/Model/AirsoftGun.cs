@@ -48,6 +48,9 @@ namespace AirsoftBase
         [StringLength(1000)]
         public string Description { get; set; }
 
+        [Range(0, 5000, ErrorMessage = "wrong price!")]
+        public double Price { get; set; }
+
         //public Clients client { get; set; }
 
 
